@@ -44,13 +44,13 @@ public class TrailMaker : MonoBehaviour
         var posDelta = (groundedPos - lastTrailPosition);
         if (posDelta.magnitude > trailPieceLength) {
             var newPiece = ReserveTrailPiece();
-            newPiece.transform.position = groundedPos - posDelta*.5f + Vector3.up * 0.02f;
+            newPiece.transform.position = groundedPos - posDelta*.5f + Vector3.up * 0.06f;
             newPiece.transform.localScale = new Vector3(
                 newPiece.transform.localScale.x,
                 newPiece.transform.localScale.y,
                 trailPieceLength * .75f
             );
-            newPiece.transform.LookAt(groundedPos + Vector3.up * 0.02f);
+            newPiece.transform.LookAt(groundedPos + Vector3.up * 0.06f);
             
             lastTrailPosition = groundedPos;
 

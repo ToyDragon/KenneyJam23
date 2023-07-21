@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoverController : MonoBehaviour
 {
-    private Rigidbody rb;
+    private CharacterController characterController;
     public Vector2 input;
     public float maxSpeed = 3f;
     public float accelerationForce = 2f;
@@ -16,8 +16,10 @@ public class RoverController : MonoBehaviour
     public Transform wheelBackRight;
     public float animatedWheelDir;
     public float distanceTraveled;
+    public Vector3 vel;
+    private Vector3 posLastFrame;
     void OnEnable() {
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
     void Update()
     {
@@ -43,14 +45,28 @@ public class RoverController : MonoBehaviour
     } 
     void FixedUpdate() {
         float targetSpeed = input.y * maxSpeed;
-        var planarVel = NoY(rb.velocity);
+        vel *= 1 - Time.fixedDeltaTime;
+
+        if (posLastFrame.y >= transform.position.y - 0.001f && vel.y < 0) {
+            vel = new Vector3(
+                vel.x,
+                0,
+                vel.z
+            );
+        }
+
+        var planarVel = NoY(vel);
         float planarVelMagnitude = planarVel.magnitude;
-        if (Vector3.Dot(rb.velocity, transform.forward) < 0) {
+        float velMagnitude = vel.magnitude;
+        if (Vector3.Dot(vel, transform.forward) < 0) {
             planarVelMagnitude *= -1;
+            velMagnitude *= -1;
         }
         distanceTraveled += planarVelMagnitude * Time.deltaTime;
         float speedDel = targetSpeed - planarVelMagnitude;
-        rb.AddForce(speedDel * accelerationForce * transform.forward);
+        vel += speedDel * accelerationForce * transform.forward;
+        vel += Physics.gravity * Time.fixedDeltaTime;
+        characterController.Move(vel * Time.fixedDeltaTime);
 
         // TODO update wheel animations
         float targetWheelDir = 30 * input.x;
@@ -82,17 +98,19 @@ public class RoverController : MonoBehaviour
             if (planarVel.magnitude < 1) {
                 stillModifier = .2f;
             }
+            float turnThisFrame = input.x * turnStrength * (input.y < 0 ? -1 : 1) * stillModifier;
             transform.rotation = Quaternion.Euler(
                 transform.rotation.eulerAngles.x,
-                transform.rotation.eulerAngles.y + input.x * turnStrength * (input.y < 0 ? -1 : 1) * stillModifier,
+                transform.rotation.eulerAngles.y + turnThisFrame,
                 transform.rotation.eulerAngles.z
             );
+            vel = Quaternion.Euler(0, turnThisFrame, 0) * vel;
         }
 
         if (planarVel.magnitude > .2) {
-            lastDirection = -Vector2.SignedAngle(Vector2.up, new Vector2(rb.velocity.x, rb.velocity.z));
+            lastDirection = -Vector2.SignedAngle(Vector2.up, new Vector2(vel.x, vel.z));
             if (planarVelMagnitude < 0) {
-                lastDirection = -Vector2.SignedAngle(Vector2.up, new Vector2(-rb.velocity.x, -rb.velocity.z));
+                lastDirection = -Vector2.SignedAngle(Vector2.up, new Vector2(-vel.x, -vel.z));
             }
         } else {
             lastDirection = transform.rotation.eulerAngles.y;
@@ -100,5 +118,6 @@ public class RoverController : MonoBehaviour
         CameraFollow.instance.rotation = lastDirection;
         
         input = Vector2.zero;
+        posLastFrame = transform.position;
     }
 }

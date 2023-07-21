@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   snappiness: 2
-  offset: {x: 0, y: 4.79, z: -7.24}
+  offset: {x: 0, y: 2.395, z: -3.62}
   angle: 0
   actualAngle: 0
   rotation: 0

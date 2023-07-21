@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public static CameraFollow instance;
-    public Rigidbody target;
+    public RoverController target;
     public float snappiness = 2f;
     public Vector3 offset;
     public float angle;
@@ -58,9 +58,9 @@ public class CameraFollow : MonoBehaviour
             rotationDelta += 360;
         }
 
-        var delta = (target.transform.position + target.velocity * predictionDistance) - trackedLocation;
+        var delta = (target.transform.position + target.vel * predictionDistance) - trackedLocation;
 
-        distanceModifier = Mathf.Clamp01(target.velocity.magnitude / 1.5f) + 1f;
+        distanceModifier = Mathf.Clamp01(target.vel.magnitude / 1.5f) + 1f;
 
         // You might think MANGitude is misspelled magnitude, but it's not. It's mang0's attitude.
         float deltaMangitude = delta.magnitude;
