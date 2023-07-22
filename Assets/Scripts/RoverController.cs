@@ -103,7 +103,7 @@ public class RoverController : MonoBehaviour
         var frontPos = transform.position + transform.forward * .125f + Vector3.up * .25f;
         var backPos = transform.position - transform.forward * .125f + Vector3.up * .25f;
         float modelXRot = 0;
-        if (Physics.Raycast(frontPos, Vector3.down, out var frontHit, .25f, Physics.AllLayers) && Physics.Raycast(backPos, Vector3.down, out var backHit, .25f, Physics.AllLayers)) {
+        if (Physics.Raycast(frontPos, Vector3.down, out var frontHit, .5f, Physics.AllLayers) && Physics.Raycast(backPos, Vector3.down, out var backHit, .5f, Physics.AllLayers)) {
             var delta = (frontHit.point - backHit.point).normalized;
             modelXRot = -Mathf.Asin(delta.y)*180/Mathf.PI;
         }
