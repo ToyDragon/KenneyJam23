@@ -132,7 +132,9 @@ public class RampCreator : MonoBehaviour
                 if (glowingObject.TryGetComponent<Renderer>(out var renderer)) {
                     renderer.GetSharedMaterials(rendererMaterials);
                     for (int j = 0; j < rendererMaterials.Count; j++) {
-                        rendererMaterials[j] = TerrainTextureModifier.instance.GetGlowingMaterial(rendererMaterials[j]);
+                        if (rendererMaterials[j]) {
+                            rendererMaterials[j] = TerrainTextureModifier.instance.GetGlowingMaterial(rendererMaterials[j]);
+                        }
                     }
                     renderer.SetSharedMaterials(rendererMaterials);
                 }
