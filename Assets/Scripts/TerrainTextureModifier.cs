@@ -44,6 +44,8 @@ public class TerrainTextureModifier : MonoBehaviour
                     rendererMaterials[j] = GetModifiedMaterial(rendererMaterials[j]);
                 }
                 renderer.SetSharedMaterials(rendererMaterials);
+                MeshCollider collider = terrain.AddComponent<MeshCollider>();
+                collider.sharedMesh = terrain.GetComponent<MeshFilter>().mesh;
             }
         }
     }
