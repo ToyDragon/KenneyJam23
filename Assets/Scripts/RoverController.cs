@@ -29,8 +29,10 @@ public class RoverController : MonoBehaviour
     public Transform model;
     public bool groundedRecently;
     public AudioSource audioSource;
+    public Animator roverAnimator;
     void OnEnable() {
         characterController = GetComponent<CharacterController>();
+        roverAnimator = GetComponentInChildren<Animator>();
         instance = this;
     }
     void Update()
@@ -82,6 +84,7 @@ public class RoverController : MonoBehaviour
         vel += speedDel * accelerationForce * transform.forward;
         vel += Physics.gravity * Time.fixedDeltaTime * 5;
         characterController.Move(vel * Time.fixedDeltaTime);
+        roverAnimator.SetBool("Driving", NoY(vel).magnitude > 0.1f);
         distanceTraveledLeft += planarVelMagnitude * Time.fixedDeltaTime;
         distanceTraveledRight += planarVelMagnitude * Time.fixedDeltaTime;
 

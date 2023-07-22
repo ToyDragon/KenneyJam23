@@ -49,6 +49,10 @@ public class RampCreator : MonoBehaviour
             if (rampCreationState == 5 && t >= 1.3f) { audioSource.PlayOneShot(drillSounds[1], vol); rampCreationState++; }
             if (rampCreationState == 6 && t >= 1.6f) { audioSource.PlayOneShot(digSounds[2], vol); rampCreationState++; }
             if (rampCreationState == 7 && t >= 2.2f) { audioSource.PlayOneShot(claySounds[2], vol); rampCreationState++; }
+
+            if (t >= 2.8f) {
+                RoverController.instance.roverAnimator.SetBool("Digging", false);
+            }
             
             if (t >= 3) {
                 var newRamp = GameObject.Instantiate(hitObjectIsCorner ? cornerRampPrefab : rampPrefab);
@@ -128,16 +132,14 @@ public class RampCreator : MonoBehaviour
                 }
                 
                 float offset = .015f;
-                glowingObject.transform.position += glowingObject.transform.up * offset; // glowingObject.transform.forward * offset;
-                if (hitObjectIsCorner) {
-                    // glowingObject.transform.position += glowingObject.transform.right * offset;
-                }
+                glowingObject.transform.position += glowingObject.transform.up * offset;
             }
         }
 
         if (hitObject && Input.GetKeyDown(KeyCode.Space)) {
             rampCreationStart = Time.time;
             rampCreationState = 0;
+            RoverController.instance.roverAnimator.SetBool("Digging", true);
         }
     }
 }
