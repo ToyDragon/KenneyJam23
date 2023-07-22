@@ -923,7 +923,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 150
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6213,7 +6213,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 150
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -10149,7 +10149,7 @@ Transform:
   - {fileID: 4038621250980833750}
   - {fileID: 4010096176738339788}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6247717165673391941
 GameObject:
