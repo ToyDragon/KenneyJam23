@@ -16,12 +16,12 @@ public class HitchMeUp : MonoBehaviour
     void Update()
     {
         if (roverController) {
-            transform.parent.position = roverController.model.position - roverController.model.forward * .18f;
+            transform.parent.position = roverController.model.position - roverController.model.forward * .22f;
             var backPos = transform.position - transform.forward * .5f;
             Debug.DrawRay(backPos + Vector3.up*.5f, Vector3.down, Color.blue, .01f);
             if (Physics.Raycast(backPos + Vector3.up*.5f, Vector3.down, out var hit, 1f, Physics.AllLayers)) {
                 Debug.DrawRay(hit.point, -Vector3.forward, Color.red, .01f);
-                var delta = (transform.position - Vector3.up*.25f - hit.point).normalized;
+                var delta = (transform.position - Vector3.up*.12f - hit.point).normalized;
                 float angleDegrees = Mathf.Asin(-delta.y) * 180 / Mathf.PI;
                 transform.parent.localEulerAngles = new Vector3(angleDegrees, -.5f * roverController.animatedWheelDir, 0);
             }
@@ -29,6 +29,9 @@ public class HitchMeUp : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
+        if (roverController) {
+            return;
+        }
         Debug.Log("This probably will not print");
         Debug.Log("ok in case this prints, the object that triggers is - " + other.gameObject.name);
         if(other.gameObject.name == "TowHitch") {
