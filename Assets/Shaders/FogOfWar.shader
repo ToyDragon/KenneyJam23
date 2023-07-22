@@ -19,6 +19,7 @@ Shader "Custom/PP/FogOfWar" {
             TEXTURE2D(_CameraDepthTexture);
             TEXTURE2D(_CameraOpaqueTexture);
             TEXTURE2D(_FogOfWarTexture);
+            // TEXTURE2D(_NoiseTexture);
             float3 _FeaturePosition;
             float3 _FogColor;
 
@@ -40,6 +41,9 @@ Shader "Custom/PP/FogOfWar" {
                 float2 fogOfWarUV = worldPos.xz / 1024 + float2(.5, .5);
                 float distToFeature = length(worldPos - _FeaturePosition); // _WorldSpaceCameraPos);
                 float4 color = SAMPLE_TEXTURE2D_X(_CameraOpaqueTexture, sampler_PointClamp, input.texcoord);
+
+                // float2 noiseUV = worldPos.xz * 0.001 + float2(.5, .5);
+                // float noise = SAMPLE_TEXTURE2D_X(_NoiseTexture, sampler_PointClamp, noiseUV);
 
                 float fogOfWarValue = SAMPLE_TEXTURE2D_X(_FogOfWarTexture, sampler_LinearClamp, fogOfWarUV).r;
                 float distanceDimming = 1 - min(max(pow(distToFeature/20, .2), 0), 1);

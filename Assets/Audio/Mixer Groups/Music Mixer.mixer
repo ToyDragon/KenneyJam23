@@ -23,7 +23,8 @@ AudioMixerGroupController:
   m_Name: Sound Effects
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 3e5c310ce11e77c42a191a8ab0edcda8
-  m_Children: []
+  m_Children:
+  - {fileID: 2470402905637331777}
   m_Volume: 8b51642410d25b64298b5acf74cf2d4f
   m_Pitch: 80d1a790ae478f6409236c4c2dbeca72
   m_Send: 00000000000000000000000000000000
@@ -60,6 +61,7 @@ AudioMixerController:
     - 2887ff23be76d2a44827739a0cbff964
     - a65675d006afafe4a94e269573d6838d
     - 3e5c310ce11e77c42a191a8ab0edcda8
+    - 179da548f9a68cd4fb70ea6bf8f95db6
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -130,6 +132,25 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &2470402905637331777
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rover Engine
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 179da548f9a68cd4fb70ea6bf8f95db6
+  m_Children: []
+  m_Volume: 0192c93ffd314fc47a0aff7571897417
+  m_Pitch: 0ef5392adbc398f49828b9c624c08995
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 7724532956077767285}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &2901743371236627949
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -140,6 +161,20 @@ AudioMixerEffectController:
   m_EffectID: ece55ed2e13717543b72d562cd76d5a8
   m_EffectName: Attenuation
   m_MixLevel: aaad740f718e9a946b5fc9cc20c7e98b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &7724532956077767285
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b308252947c251d4bbb34029da4f8525
+  m_EffectName: Attenuation
+  m_MixLevel: 0765f75672f6cb842a9f83f4ba47f477
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

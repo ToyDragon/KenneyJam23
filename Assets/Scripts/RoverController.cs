@@ -22,9 +22,11 @@ public class RoverController : MonoBehaviour
     private Vector3 posLastFrame;
     public Transform model;
     public bool groundedRecently;
+    public AudioSource audioSource;
     void OnEnable() {
         characterController = GetComponent<CharacterController>();
         instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -137,6 +139,8 @@ public class RoverController : MonoBehaviour
             );
             vel = Quaternion.Euler(0, turnThisFrame, 0) * vel;
         }
+
+        audioSource.volume = Mathf.Clamp01(planarVel.magnitude + .1f);
 
         if (planarVel.magnitude > .2) {
             lastDirection = -Vector2.SignedAngle(Vector2.up, new Vector2(vel.x, vel.z));
