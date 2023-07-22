@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitchMeUp : MonoBehaviour
 {
+    public AudioSource hitchSound;
     // Start is called before the first frame update
     public RoverController roverController;
     void Start()
@@ -39,8 +40,9 @@ public class HitchMeUp : MonoBehaviour
     void HitchMeUpDaddy(Transform rover){
         roverController = rover.GetComponent<RoverController>();
         transform.parent.parent = rover;
-        transform.parent.localPosition = new Vector3(0f, 0.12f, -.22f);
+        transform.parent.localPosition = new Vector3(0f, 0f, -.22f);
         transform.parent.rotation = transform.parent.parent.rotation;
         transform.parent.parent.GetComponent<RoverController>().trailerAttached = true;
+        hitchSound.Play();
     }
 }
