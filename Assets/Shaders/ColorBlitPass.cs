@@ -33,7 +33,7 @@ internal class ColorBlitPass : ScriptableRenderPass
 
 		// This holds all the current Volumes information
 		// which we will need later
-        var stack = VolumeManager.instance.stack;
+        // var stack = VolumeManager.instance.stack;
 
 
         //---Custom effect here---
