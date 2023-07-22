@@ -29,10 +29,97 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1986770679305312635}
-  - {fileID: 8849850617364951460}
+  - {fileID: 3371239156925363480}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4922738965708051358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3371239156925363480}
+  - component: {fileID: 6012093612134501249}
+  - component: {fileID: 8003144042841674063}
+  m_Layer: 0
+  m_Name: Rover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3371239156925363480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922738965708051358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.098, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8849850617364951460}
+  m_Father: {fileID: 7064735879551706428}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6012093612134501249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922738965708051358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd51603fb6e2fc4c9d2c30a56b5ee39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {x: 0, y: 0}
+  maxSpeed: 1.5
+  accelerationForce: 0.1
+  turnStrength: 1
+  lastDirection: 0
+  wheelFrontLeft: {fileID: 3722310566986013083}
+  wheelFrontRight: {fileID: 2762349596784900684}
+  wheelBackLeft: {fileID: 2371212308558592125}
+  wheelBackRight: {fileID: 1237410763918405340}
+  animatedWheelDir: 0
+  distanceTraveledLeft: 0
+  distanceTraveledRight: 0
+  vel: {x: 0, y: 0, z: 0}
+  model: {fileID: 8849850617364951460}
+  groundedRecently: 0
+--- !u!143 &8003144042841674063
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922738965708051358}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 0.4
+  m_Radius: 0.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.001
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.28, z: 0}
 --- !u!1 &7347844539014458904
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,12 +232,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7064735879551706428}
+    m_TransformParent: {fileID: 3371239156925363480}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
@@ -170,7 +257,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
@@ -195,7 +282,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
@@ -220,20 +307,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
       propertyPath: m_Name
-      value: Rover
+      value: Model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dddc3706257d5f746981910eac8001b4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7313620590829445518}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dddc3706257d5f746981910eac8001b4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3898450267672566630}
     - targetCorrespondingSourceObject: {fileID: -2357636173586553915, guid: dddc3706257d5f746981910eac8001b4,
         type: 3}
       insertIndex: -1
@@ -290,62 +369,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9032608152514877007}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8186185761339435806 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dddc3706257d5f746981910eac8001b4,
-    type: 3}
-  m_PrefabInstance: {fileID: 9032608152514877007}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7313620590829445518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8186185761339435806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd51603fb6e2fc4c9d2c30a56b5ee39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: {x: 0, y: 0}
-  maxSpeed: 1.5
-  accelerationForce: 0.1
-  turnStrength: 1
-  lastDirection: 0
-  wheelFrontLeft: {fileID: 3722310566986013083}
-  wheelFrontRight: {fileID: 2762349596784900684}
-  wheelBackLeft: {fileID: 2371212308558592125}
-  wheelBackRight: {fileID: 1237410763918405340}
-  animatedWheelDir: 0
-  distanceTraveled: 0
-  vel: {x: 0, y: 0, z: 0}
---- !u!143 &3898450267672566630
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8186185761339435806}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 0.004
-  m_Radius: 0.002
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.0028, z: 0}
 --- !u!4 &8849850617364951460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dddc3706257d5f746981910eac8001b4,
