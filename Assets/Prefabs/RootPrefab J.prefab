@@ -249,6 +249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rampPrefab: {fileID: 5237123880111268836, guid: a246740800729b9499382ccd024acfad,
     type: 3}
+  cornerRampPrefab: {fileID: 5447403503973710560, guid: a65226da56701d54592cc9aae488b394,
+    type: 3}
   glowingObject: {fileID: 0}
   lastHitObject: {fileID: 0}
   drillSounds:
@@ -269,6 +271,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 87ae266a7f27c4142835cc76ab1cc458, type: 3}
   audioSource: {fileID: 5292029025296364151}
   rampCreationState: 0
+  hitObjectIsCorner: 0
 --- !u!82 &5292029025296364151
 AudioSource:
   m_ObjectHideFlags: 0

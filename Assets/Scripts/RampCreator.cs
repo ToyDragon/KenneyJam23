@@ -6,6 +6,7 @@ public class RampCreator : MonoBehaviour
 {
     public static RampCreator instance;
     public GameObject rampPrefab;
+    public GameObject cornerRampPrefab;
     public GameObject glowingObject = null;
     public GameObject lastHitObject = null;
     private List<Material> rendererMaterials = new List<Material>();
@@ -16,13 +17,15 @@ public class RampCreator : MonoBehaviour
     public List<AudioClip> tossSounds = new List<AudioClip>();
     public AudioSource audioSource;
     public int rampCreationState = 0;
+    public bool hitObjectIsCorner = false;
     void OnEnable() {
         instance = this;
     }
     private bool CheckForRamp(Vector3 pos, Vector3 forward) {
         Debug.DrawLine(pos, pos + forward * 1.5f, Color.blue);
         if (Physics.Raycast(pos, forward, out var hit, 1.5f)) {
-            if (hit.transform.gameObject.name.StartsWith("terrain_ramp")) {
+            if (hit.transform.gameObject.name.StartsWith("terrain_ramp") || hit.transform.gameObject.name.StartsWith("Corner Ramp")) {
+                Debug.DrawLine(pos, pos + Vector3.up * .25f, Color.red);
                 return true;
             }
         }
@@ -48,7 +51,7 @@ public class RampCreator : MonoBehaviour
             if (rampCreationState == 7 && t >= 2.2f) { audioSource.PlayOneShot(claySounds[2], vol); rampCreationState++; }
             
             if (t >= 3) {
-                var newRamp = GameObject.Instantiate(rampPrefab);
+                var newRamp = GameObject.Instantiate(hitObjectIsCorner ? cornerRampPrefab : rampPrefab);
                 newRamp.transform.SetParent(lastHitObject.transform.parent);
                 newRamp.transform.rotation = lastHitObject.transform.rotation;
                 newRamp.transform.position = lastHitObject.transform.position - lastHitObject.transform.forward * .5f + lastHitObject.transform.right * .5f;
@@ -72,7 +75,8 @@ public class RampCreator : MonoBehaviour
         Debug.DrawLine(start, start + transform.forward*1.5f);
         GameObject hitObject = null;
         if (Physics.Raycast(start, transform.forward, out var hit, 1.5f)) {
-            if (hit.transform.gameObject.name.StartsWith("terrain_sideCliff")) {
+            if (hit.transform.gameObject.name.StartsWith("terrain_sideCliff.")) {
+                hitObjectIsCorner = false;
                 if (hit.transform.gameObject.TryGetComponent<MeshFilter>(out var filter)) {
                     float height = filter.sharedMesh.bounds.max.y - filter.sharedMesh.bounds.min.y;
                     if (height < 0.006f) {
@@ -80,10 +84,26 @@ public class RampCreator : MonoBehaviour
                     }
                 }
             }
-            var center = hit.transform.position + hit.transform.right*.5f + hit.transform.up * .25f;
-            bool neighboringRamp = CheckForRamp(center + hit.transform.right, -hit.transform.forward*.5f) || CheckForRamp(center - hit.transform.right, -hit.transform.forward*.5f);
-            if (neighboringRamp) {
-                hitObject = null;
+            
+            if (hit.transform.gameObject.name.StartsWith("terrain_sideCorner.")) {
+                hitObjectIsCorner = true;
+                hitObject = hit.transform.gameObject;
+            }
+
+            if (hitObject) {
+                if (!hitObjectIsCorner) {
+                    var center = hit.transform.position + hit.transform.right*.5f + hit.transform.up * .25f;
+                    bool neighboringRamp = CheckForRamp(center + hit.transform.right, -hit.transform.forward*.5f) || CheckForRamp(center - hit.transform.right, -hit.transform.forward*.5f);
+                    if (neighboringRamp) {
+                        hitObject = null;
+                    }
+                } else {
+                    var center = hit.transform.position + hit.transform.right*.5f + hit.transform.up * .25f;
+                    bool neighboringRamp = CheckForRamp(center - hit.transform.forward*1.5f + hit.transform.right*.25f, -hit.transform.right*.5f) || CheckForRamp(center - hit.transform.right, -hit.transform.forward*.5f);
+                    if (neighboringRamp) {
+                        hitObject = null;
+                    }
+                }
             }
         }
 
@@ -107,6 +127,9 @@ public class RampCreator : MonoBehaviour
                 
                 float offset = .01f;
                 glowingObject.transform.position += glowingObject.transform.forward * offset + glowingObject.transform.up * offset;
+                if (hitObjectIsCorner) {
+                    glowingObject.transform.position += glowingObject.transform.right * offset;
+                }
             }
         }
 
