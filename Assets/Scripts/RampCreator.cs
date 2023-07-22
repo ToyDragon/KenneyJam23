@@ -71,6 +71,7 @@ public class RampCreator : MonoBehaviour
                 Destroy(lastHitObject);
                 lastHitObject = null;
                 rampCreationStart = null;
+                PIPDisplay.instance.img.enabled = false;
             }
             return;
         }
@@ -140,6 +141,7 @@ public class RampCreator : MonoBehaviour
             rampCreationStart = Time.time;
             rampCreationState = 0;
             RoverController.instance.roverAnimator.SetBool("Digging", true);
+            PIPDisplay.instance.img.enabled = true;
         }
     }
 }

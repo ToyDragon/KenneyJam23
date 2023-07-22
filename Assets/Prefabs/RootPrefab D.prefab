@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitchSound: {fileID: 8737584431424176411}
+  roverController: {fileID: 0}
 --- !u!1 &4402325351019919120
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1000,46 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608304808058770297, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5814770269795613932, guid: c5de2266b74e9cc408e7af2d2234e691,
         type: 3}
       propertyPath: m_RootOrder
@@ -1064,6 +1105,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7332900391394874199, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 45c91dbd368d33b48b51c744549e8a05, type: 2}
     - target: {fileID: 8063903235230242379, guid: c5de2266b74e9cc408e7af2d2234e691,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1078,6 +1124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065984330989917982, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      propertyPath: m_Name
+      value: PIP
       objectReference: {fileID: 0}
     - target: {fileID: 8353425519882080459, guid: c5de2266b74e9cc408e7af2d2234e691,
         type: 3}
@@ -1116,7 +1167,30 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7305521383946735731}
+    - targetCorrespondingSourceObject: {fileID: 8065984330989917982, guid: c5de2266b74e9cc408e7af2d2234e691,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 297161549112440405}
   m_SourcePrefab: {fileID: 100100000, guid: c5de2266b74e9cc408e7af2d2234e691, type: 3}
+--- !u!1 &486844466563884389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8065984330989917982, guid: c5de2266b74e9cc408e7af2d2234e691,
+    type: 3}
+  m_PrefabInstance: {fileID: 7580046862814737019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &297161549112440405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486844466563884389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4be2a642c4b07499534b84ec6fb138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 0}
 --- !u!114 &1765320114235239160 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8164482139118966915, guid: c5de2266b74e9cc408e7af2d2234e691,

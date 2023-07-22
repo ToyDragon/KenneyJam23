@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 4347131761191731229}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7154905245248434109
 GameObject:
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4347131761191731229}
   - component: {fileID: 4104807158694774200}
   - component: {fileID: 2748972446131982668}
+  - component: {fileID: 2799538580022127377}
   m_Layer: 0
   m_Name: PIPCamera
   m_TagString: Untagged
@@ -57,14 +58,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7154905245248434109}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18760997, y: 0.3361598, z: 0.22130904}
+  m_LocalRotation: {x: 0.11032812, y: -0.43738106, z: 0.054168615, w: 0.89083743}
+  m_LocalPosition: {x: 0.645, y: 0.305, z: -0.328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3833633913083363895}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.12, y: -52.3, z: 0}
 --- !u!20 &4104807158694774200
 Camera:
   m_ObjectHideFlags: 0
@@ -160,3 +161,15 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &2799538580022127377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154905245248434109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95ac5b5ee5606e4c9414d73252e581d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
