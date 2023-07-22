@@ -25,7 +25,7 @@ internal class CustomPPRendererFeature : ScriptableRendererFeature
         if (renderingData.cameraData.cameraType == CameraType.Game)
         {
             foreach (var pass in colorBlitPasses) {
-                pass.ConfigureInput(ScriptableRenderPassInput.Color);
+                pass.ConfigureInput(ScriptableRenderPassInput.Color | ScriptableRenderPassInput.Depth);
                 pass.SetTarget(renderer.cameraColorTargetHandle);
             }
         }
