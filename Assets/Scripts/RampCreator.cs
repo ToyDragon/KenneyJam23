@@ -114,6 +114,8 @@ public class RampCreator : MonoBehaviour
             }
             if (hitObject) {
                 glowingObject = GameObject.Instantiate(hitObject);
+                glowingObject.transform.SetParent(hitObject.transform.parent);
+                glowingObject.transform.position = hitObject.transform.position;
                 if (glowingObject.TryGetComponent<MeshCollider>(out var collider)) {
                     Destroy(collider);
                 }
@@ -125,10 +127,10 @@ public class RampCreator : MonoBehaviour
                     renderer.SetSharedMaterials(rendererMaterials);
                 }
                 
-                float offset = .01f;
-                glowingObject.transform.position += glowingObject.transform.forward * offset + glowingObject.transform.up * offset;
+                float offset = .015f;
+                glowingObject.transform.position += glowingObject.transform.up * offset; // glowingObject.transform.forward * offset;
                 if (hitObjectIsCorner) {
-                    glowingObject.transform.position += glowingObject.transform.right * offset;
+                    // glowingObject.transform.position += glowingObject.transform.right * offset;
                 }
             }
         }

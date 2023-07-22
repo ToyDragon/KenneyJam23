@@ -15,6 +15,12 @@ public class RoverController : MonoBehaviour
     public Transform wheelFrontRight;
     public Transform wheelBackLeft;
     public Transform wheelBackRight;
+    public Transform trailerWheel1;
+    public Transform trailerWheel2;
+    public Transform trailerWheel3;
+    public Transform trailerWheel4;
+    public Transform trailerWheel5;
+    public bool trailerAttached = false;
     public float animatedWheelDir;
     public float distanceTraveledLeft;
     public float distanceTraveledRight;
@@ -104,6 +110,34 @@ public class RoverController : MonoBehaviour
             0,
             0
         );
+
+        if(trailerAttached){
+            trailerWheel1.transform.localEulerAngles = new Vector3(
+                wheelXRot,
+                0,
+                0
+            );
+            trailerWheel2.transform.localEulerAngles = new Vector3(
+                wheelXRot,
+                0,
+                0
+            );
+            trailerWheel3.transform.localEulerAngles = new Vector3(
+                wheelXRot,
+                0,
+                0
+            );
+            trailerWheel4.transform.localEulerAngles = new Vector3(
+                wheelXRot,
+                0,
+                0
+            );
+            trailerWheel5.transform.localEulerAngles = new Vector3(
+                wheelXRot,
+                0,
+                0
+            );
+        }
 
         var frontPos = transform.position + transform.forward * .125f + Vector3.up * .25f;
         var backPos = transform.position - transform.forward * .125f + Vector3.up * .25f;
