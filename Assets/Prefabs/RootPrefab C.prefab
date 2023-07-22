@@ -42,7 +42,7 @@ Transform:
   - {fileID: 5534172265033668680}
   - {fileID: 2497757012161076774}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &166138680592904939
 PrefabInstance:
@@ -126,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: craterLarge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cc19bd7ab1b25443bd9179373c38fd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -238,6 +243,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bones
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51eaeea05836cdd4487f786ef757e404,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -316,6 +326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: craft_miner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2a330e200ff7b45afe328710d1aafb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -396,6 +411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrels
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 97c10b3056ebf1943b0f3e1fcc6a8e91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -474,6 +494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: turret_double (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d68cd09a9993baa49bc1c611a02e2493,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -568,6 +593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: rock_largeB
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3748680f71ff8145aea5ebd0a0d7c7f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4890831572595227821, guid: a3748680f71ff8145aea5ebd0a0d7c7f,
         type: 3}
@@ -705,6 +735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_rampLarge_detailed
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b49dfafce9d48b4458f739c8e3144abf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -816,6 +851,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: corridor_wallCorner
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d4c21664d92530346a82aac27f01715b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -894,6 +934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: astronautA
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6cd78992e3dc47d45b257d0c5f3ca722,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -974,6 +1019,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: corridor_open
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 67afaecd3f8712d45bc17fe2fa0c6e2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1052,6 +1102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: turret_double
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d68cd09a9993baa49bc1c611a02e2493,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1132,6 +1187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: chimney
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df0341a332949c24b94f0972d0ab099c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1210,6 +1270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: corridor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a10e1814c5332ee48ab2250d591b2c83,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

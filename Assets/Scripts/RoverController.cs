@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoverController : MonoBehaviour
 {
+    public static RoverController instance;
     private CharacterController characterController;
     public Vector2 input;
     public float maxSpeed = 3f;
@@ -15,11 +16,15 @@ public class RoverController : MonoBehaviour
     public Transform wheelBackLeft;
     public Transform wheelBackRight;
     public float animatedWheelDir;
-    public float distanceTraveled;
+    public float distanceTraveledLeft;
+    public float distanceTraveledRight;
     public Vector3 vel;
     private Vector3 posLastFrame;
+    public Transform model;
+    public bool groundedRecently;
     void OnEnable() {
         characterController = GetComponent<CharacterController>();
+        instance = this;
     }
     void Update()
     {
@@ -62,42 +67,68 @@ public class RoverController : MonoBehaviour
             planarVelMagnitude *= -1;
             velMagnitude *= -1;
         }
-        distanceTraveled += planarVelMagnitude * Time.deltaTime;
         float speedDel = targetSpeed - planarVelMagnitude;
         vel += speedDel * accelerationForce * transform.forward;
-        vel += Physics.gravity * Time.fixedDeltaTime;
+        vel += Physics.gravity * Time.fixedDeltaTime * 5;
         characterController.Move(vel * Time.fixedDeltaTime);
+        distanceTraveledLeft += planarVelMagnitude * Time.fixedDeltaTime;
+        distanceTraveledRight += planarVelMagnitude * Time.fixedDeltaTime;
 
         // TODO update wheel animations
         float targetWheelDir = 30 * input.x;
         animatedWheelDir += (targetWheelDir - animatedWheelDir) * Mathf.Clamp01(Time.deltaTime * 4);
-        float wheelXRot = distanceTraveled * 360f;
+        float wheelXRot = distanceTraveledLeft * 360f;
         wheelFrontLeft.transform.localEulerAngles = new Vector3(
             wheelXRot,
             animatedWheelDir,
-            wheelFrontLeft.transform.localEulerAngles.z
-        );
-        wheelFrontRight.transform.localEulerAngles = new Vector3(
-            wheelXRot,
-            animatedWheelDir,
-            wheelFrontRight.transform.localEulerAngles.z
+            0
         );
         wheelBackLeft.transform.localEulerAngles = new Vector3(
             wheelXRot,
-            wheelBackLeft.transform.localEulerAngles.y,
-            wheelBackLeft.transform.localEulerAngles.z
+            0,
+            0
+        );
+        wheelXRot = distanceTraveledRight * 360f;
+        wheelFrontRight.transform.localEulerAngles = new Vector3(
+            wheelXRot,
+            animatedWheelDir,
+            0
         );
         wheelBackRight.transform.localEulerAngles = new Vector3(
             wheelXRot,
-            wheelBackRight.transform.localEulerAngles.y,
-            wheelBackRight.transform.localEulerAngles.z
+            0,
+            0
+        );
+
+        var frontPos = transform.position + transform.forward * .125f + Vector3.up * .25f;
+        var backPos = transform.position - transform.forward * .125f + Vector3.up * .25f;
+        float modelXRot = 0;
+        if (Physics.Raycast(frontPos, Vector3.down, out var frontHit, .5f, Physics.AllLayers) && Physics.Raycast(backPos, Vector3.down, out var backHit, .5f, Physics.AllLayers)) {
+            var delta = (frontHit.point - backHit.point).normalized;
+            modelXRot = -Mathf.Asin(delta.y)*180/Mathf.PI;
+        }
+
+        var leftPos = transform.position + transform.right * .1f + Vector3.up * .25f;
+        var rightPos = transform.position - transform.right * .1f + Vector3.up * .25f;
+        float modelZRot = 0;
+        if (Physics.Raycast(leftPos, Vector3.down, out var leftHit, .45f, Physics.AllLayers) && Physics.Raycast(rightPos, Vector3.down, out var rightHit, .45f, Physics.AllLayers)) {
+            var delta = (rightHit.point - leftHit.point).normalized;
+            modelZRot = -Mathf.Asin(delta.y)*180/Mathf.PI;
+        }
+    
+        model.localEulerAngles = new Vector3(
+            modelXRot,
+            0,
+            modelZRot
         );
 
         if (input.x != 0) {
             float stillModifier = 1;
             if (planarVel.magnitude < 1) {
-                stillModifier = .2f;
+                stillModifier = .7f;
             }
+            distanceTraveledLeft += input.x * stillModifier * .01f;
+            distanceTraveledRight -= input.x * stillModifier * .01f;
             float turnThisFrame = input.x * turnStrength * (input.y < 0 ? -1 : 1) * stillModifier;
             transform.rotation = Quaternion.Euler(
                 transform.rotation.eulerAngles.x,

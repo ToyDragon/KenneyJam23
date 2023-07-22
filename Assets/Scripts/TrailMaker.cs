@@ -43,21 +43,24 @@ public class TrailMaker : MonoBehaviour
         var groundedPos = transform.position - Vector3.up * .1f;
         var posDelta = (groundedPos - lastTrailPosition);
         if (posDelta.magnitude > trailPieceLength) {
-            var newPiece = ReserveTrailPiece();
-            newPiece.transform.position = groundedPos - posDelta*.5f + Vector3.up * 0.06f;
-            newPiece.transform.localScale = new Vector3(
-                newPiece.transform.localScale.x,
-                newPiece.transform.localScale.y,
-                trailPieceLength * .75f
-            );
-            newPiece.transform.LookAt(groundedPos + Vector3.up * 0.06f);
-            
-            lastTrailPosition = groundedPos;
+            var piecePos = groundedPos - posDelta*.5f + Vector3.up * 0.06f;
+            Debug.DrawLine(piecePos + Vector3.up * 0.01f, piecePos - Vector3.up * 0.9f, Color.red, 2);
+            if (Physics.Raycast(piecePos + Vector3.up * 0.01f, Vector3.down, 0.10f)) {
+                var newPiece = ReserveTrailPiece();
+                newPiece.transform.position = piecePos;
+                newPiece.transform.localScale = new Vector3(
+                    newPiece.transform.localScale.x,
+                    newPiece.transform.localScale.y,
+                    trailPieceLength * .75f
+                );
+                newPiece.transform.LookAt(groundedPos + Vector3.up * 0.06f);
 
-            if (trailPieces.Count > maxTrailPieces) {
-                ReturnTrailPiece(trailPieces[0]);
-                trailPieces.RemoveAt(0);
+                if (trailPieces.Count > maxTrailPieces) {
+                    ReturnTrailPiece(trailPieces[0]);
+                    trailPieces.RemoveAt(0);
+                }
             }
+            lastTrailPosition = groundedPos;
         }
     }
 }
