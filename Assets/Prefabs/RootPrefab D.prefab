@@ -189,6 +189,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7305521383946735731}
   m_SourcePrefab: {fileID: 100100000, guid: c5de2266b74e9cc408e7af2d2234e691, type: 3}
+--- !u!114 &1765320114235239160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8164482139118966915, guid: c5de2266b74e9cc408e7af2d2234e691,
+    type: 3}
+  m_PrefabInstance: {fileID: 7580046862814737019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4144308593770466967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5814770269795613932, guid: c5de2266b74e9cc408e7af2d2234e691,
@@ -213,3 +225,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fff3697605f4c4190b533b96011839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unstuckButton: {fileID: 1765320114235239160}
+  player: {fileID: 0}
