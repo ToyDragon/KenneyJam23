@@ -92,7 +92,12 @@ public class RampCreator : MonoBehaviour
             
             if (hit.transform.gameObject.name.StartsWith("terrain_sideCorner.")) {
                 hitObjectIsCorner = true;
-                hitObject = hit.transform.gameObject;
+                if (hit.transform.gameObject.TryGetComponent<MeshFilter>(out var filter)) {
+                    float height = filter.sharedMesh.bounds.max.y - filter.sharedMesh.bounds.min.y;
+                    if (height < 0.006f) {
+                        hitObject = hit.transform.gameObject;
+                    }
+                }
             }
 
             if (hitObject) {
