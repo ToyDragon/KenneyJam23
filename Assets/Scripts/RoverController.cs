@@ -26,7 +26,6 @@ public class RoverController : MonoBehaviour
     void OnEnable() {
         characterController = GetComponent<CharacterController>();
         instance = this;
-        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -51,6 +50,10 @@ public class RoverController : MonoBehaviour
         return new Vector2(v.x, v.z);
     } 
     void FixedUpdate() {
+        if (RampCreator.instance.rampCreationStart.HasValue) {
+            audioSource.volume = .1f;
+            return;
+        }
         float targetSpeed = input.y * maxSpeed;
         vel *= 1 - Time.fixedDeltaTime;
 
