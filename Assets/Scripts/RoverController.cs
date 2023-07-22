@@ -37,6 +37,10 @@ public class RoverController : MonoBehaviour
     }
     void Update()
     {
+        if (CameraFollow.instance.mapEnabled) {
+            input = Vector2.zero;
+            return;
+        }
         float yInput = 0;
         if (Input.GetKey(KeyCode.W)) {
             yInput = 1;

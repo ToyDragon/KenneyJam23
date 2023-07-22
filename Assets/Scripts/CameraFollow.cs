@@ -18,6 +18,9 @@ public class CameraFollow : MonoBehaviour
     public float predictionDistance = .5f;
     public float verticalOffset = 0;
     public float actualVerticalOffset = 0;
+    public float mapStateChanged = -100;
+    public float mapChangeTime = 1f;
+    public bool mapEnabled = false;
     void OnEnable() {
         instance = this;
         actualAngle = angle;
@@ -46,6 +49,11 @@ public class CameraFollow : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M)) {
+            mapEnabled = !mapEnabled;
+            mapStateChanged = Time.time;
+        }
+
         actualAngle += (angle - actualAngle) * snappiness * Time.deltaTime;
         // actual and target rotations are [0, 360)
         float targetRotation = (rotation + 360) % 360;
@@ -83,7 +91,14 @@ public class CameraFollow : MonoBehaviour
         actualVerticalOffset += (verticalOffset - actualVerticalOffset) * snappiness * 5f * Time.deltaTime;
 
         var rotatedOffset = Quaternion.Euler(actualAngle, actualRotation, 0) * offset;
-        transform.position = trackedLocation + rotatedOffset * actualDistanceModifier + cameraOffset + actualVerticalOffset*Vector3.up;
-        transform.LookAt(trackedLocation + Quaternion.Euler(0, actualRotation, 0) * Vector3.forward * 1f);
+        
+        float mapT = Mathf.Clamp01((Time.time - mapStateChanged) / mapChangeTime);
+        if (!mapEnabled) {
+            mapT = 1 - mapT;
+        }
+        Vector3 posNoMap = trackedLocation + rotatedOffset * actualDistanceModifier + cameraOffset + actualVerticalOffset*Vector3.up;
+        Vector3 posMap = trackedLocation + Vector3.up * 100;
+        transform.position = posNoMap * (1 - mapT) + posMap * mapT;
+        transform.LookAt(trackedLocation + Quaternion.Euler(0, actualRotation, 0) * Vector3.forward * 1f + mapT * target.transform.forward);
     }
 }
