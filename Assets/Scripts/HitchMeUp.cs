@@ -29,5 +29,6 @@ public class HitchMeUp : MonoBehaviour
         transform.parent.parent = rover;
         transform.parent.localPosition = new Vector3(0f, 0.12f, -.22f);
         transform.parent.rotation = transform.parent.parent.rotation;
+        transform.parent.parent.GetComponent<RoverController>().trailerAttached = true;
     }
 }
