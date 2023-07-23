@@ -31,6 +31,7 @@ public class DoorDepositController : MonoBehaviour
                 payTime = Time.time;
                 doorLeftOPos = doorLeft.position;
                 doorRightOPos = doorRight.position;
+                MissionObjectiveManager.instance.CompleteObjective(2);
             }
         }
     }

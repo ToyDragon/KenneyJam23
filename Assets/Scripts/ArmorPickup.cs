@@ -21,6 +21,7 @@ public class ArmorPickup : MonoBehaviour
             Destroy(gameObject);
             RampCreator.instance.audioSource.PlayOneShot(getClip);
             ItemGetToaster.instance.Show("Protection from radiation");
+            MissionObjectiveManager.instance.CompleteObjective(5);
         }
     }
 }

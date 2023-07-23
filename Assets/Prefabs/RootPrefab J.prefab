@@ -5038,6 +5038,7 @@ MonoBehaviour:
   audioSource: {fileID: 1214539723231189336}
   roverAnimator: {fileID: 0}
   hasMultitool: 0
+  hasLeadArmor: 0
 --- !u!143 &3654309712144183459
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5329,7 +5330,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145826980792283701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 779fadea7f2cbe34c8ecea1c88e5d4e9, type: 3}
   m_Name: 
