@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitchSound: {fileID: 8737584431424176411}
   roverController: {fileID: 0}
-  uiToDisableOnHitch: {fileID: 0}
+  uiToDisableOnHitch: {fileID: 1640049756865861287}
 --- !u!1 &4402325351019919120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3208,6 +3208,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cec0dd3c73ed4d48b256affd1dccf0d, type: 3}
+--- !u!1 &1640049756865861287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5223173957177504571, guid: 4cec0dd3c73ed4d48b256affd1dccf0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6827124548225623452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5098691458594947865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1764532839527261829, guid: 4cec0dd3c73ed4d48b256affd1dccf0d,
