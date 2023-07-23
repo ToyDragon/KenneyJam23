@@ -30,6 +30,7 @@ public class RoverController : MonoBehaviour
     public bool groundedRecently;
     public AudioSource audioSource;
     public Animator roverAnimator;
+    public bool hasMultitool = false;
     void OnEnable() {
         characterController = GetComponent<CharacterController>();
         roverAnimator = GetComponentInChildren<Animator>();
