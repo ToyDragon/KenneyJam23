@@ -3621,7 +3621,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -4922,6 +4922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fogOfWarTexture: {fileID: 0}
+  radiationTexture: {fileID: 0}
   lastGrid: {x: 0, y: 0}
   fogColor: {r: 0.14150941, g: 0.08046613, b: 0, a: 1}
 --- !u!1 &3542373476725997701
@@ -8939,7 +8940,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
