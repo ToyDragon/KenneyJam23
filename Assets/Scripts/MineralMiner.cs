@@ -13,16 +13,13 @@ public class MineralMiner : MonoBehaviour
     public List<AudioClip> digSounds = new List<AudioClip>();
     public GameObject beingMined = null;
     private GameObject CheckForMineral(Vector3 pos, Vector3 forward) {
-        Debug.Log("checking for mineral!");
         Debug.DrawLine(pos, pos + forward * 1.5f, Color.blue);
         if (Physics.Raycast(pos, forward, out var hit, 1.5f)) {
             if (hit.transform.GetComponent<Mineral>() != null) {
-                Debug.Log("Hit a mineral!");
                 Debug.DrawLine(pos, pos + Vector3.up * .25f, Color.red);
                 return hit.transform.gameObject;
             }
         }
-        Debug.Log("Didn't hit a mineral :(");
         return null;
     }
 

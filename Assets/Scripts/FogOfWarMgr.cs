@@ -6,17 +6,21 @@ public class FogOfWarMgr : MonoBehaviour
 {
     public static FogOfWarMgr instance;
     public Texture2D fogOfWarTexture;
+    public Texture2D radiationTexture;
     public Vector2Int lastGrid;
     public Color fogColor = Color.black;
     void OnEnable()
     {
         instance = this;
+        radiationTexture = new Texture2D(1024, 1024);
         fogOfWarTexture = new Texture2D(1024, 1024);
         for (int x = 0; x < 1024; x++) {
             for (int y = 0; y < 1024; y++) {
                 fogOfWarTexture.SetPixel(x, y, Color.black);
+                radiationTexture.SetPixel(x, y, x > (512+21) ? Color.white : Color.black);
             }
         }
+        radiationTexture.Apply();
         fogOfWarTexture.Apply();
     }
     public void LightAround(Vector2Int gridPos) {
@@ -48,6 +52,7 @@ public class FogOfWarMgr : MonoBehaviour
         foreach (var mat in CustomPPRendererFeature.instance.colorBlitMaterials) {
             mat.SetColor("_FogColor", fogColor);
             mat.SetTexture("_FogOfWarTexture", fogOfWarTexture);
+            mat.SetTexture("_RadiationTexture", radiationTexture);
             mat.SetVector("_FeaturePosition", RoverController.instance.transform.position);
         }
         var gridPos = new Vector2Int(Mathf.RoundToInt(RoverController.instance.transform.position.x), Mathf.RoundToInt(RoverController.instance.transform.position.z));
