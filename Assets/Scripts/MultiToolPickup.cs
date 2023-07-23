@@ -21,6 +21,7 @@ public class MultiToolPickup : MonoBehaviour
             Destroy(gameObject);
             RampCreator.instance.audioSource.PlayOneShot(getClip);
             ItemGetToaster.instance.Show("Dig ramps into short cliffs");
+            MissionObjectiveManager.instance.CompleteObjective(10);
         }
     }
 }

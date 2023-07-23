@@ -13,6 +13,7 @@ public class BeaconController : MonoBehaviour
     public List<GameObject> showOnActivate = new List<GameObject>();
     public int state = 0;
     public int beaconNumber = -1;
+    public int objectiveNumber = -1;
     void OnEnable() {
         audioSource = GetComponent<AudioSource>();
         state = 1;
@@ -38,6 +39,7 @@ public class BeaconController : MonoBehaviour
             }
 
             WinConditions.instance.ActivateTower(beaconNumber);
+            MissionObjectiveManager.instance.CompleteObjective(objectiveNumber);
         }
     }
 }

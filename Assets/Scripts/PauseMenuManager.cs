@@ -27,7 +27,7 @@ public class PauseMenuManager : MonoBehaviour
             active = !active;
         } else if(Input.GetKeyUp(KeyCode.P)){
             //GetComponentInChildren<ChatManager>(true).ShowAndStartText("This message should be written out over a few seconds \n \nDo new lines work?\n\n\nmaking this extra long to test the skipping functionality lol idk what to type here matt and chandler are binks im a ui god please work on first try gg ez no re");
-            MissionObjectiveManager.instance.CompleteCurrentObjective();
+            MissionObjectiveManager.instance.CompleteObjective(11);
         } else if(Input.GetKeyUp(KeyCode.F1)){
             Controls.instance.gameObject.SetActive(!Controls.instance.gameObject.activeSelf);
         }

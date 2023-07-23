@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8155ef1b0644114eb9ebb3c2ab3ac4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveCompleted: 8
 --- !u!1 &4261308596338870503
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: beaconNumber
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970697360945058112, guid: f31f9267e24f9a34fb96ca08e3a63649,
+        type: 3}
+      propertyPath: objectiveNumber
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2015986723120037003, guid: f31f9267e24f9a34fb96ca08e3a63649,
         type: 3}

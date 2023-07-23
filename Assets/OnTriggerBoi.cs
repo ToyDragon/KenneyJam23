@@ -10,7 +10,8 @@ public class OnTriggerBoi : MonoBehaviour
         if(collision.gameObject.GetComponent<TriggerBoi>() != null){
             if(!namesOfTriggered.Contains(collision.gameObject.name)){
                 Debug.Log("Completing objective");
-                MissionObjectiveManager.instance.CompleteCurrentObjective();
+                MissionObjectiveManager.instance.CompleteObjective(
+                    collision.gameObject.GetComponent<TriggerBoi>().objectiveCompleted);
                 namesOfTriggered.Add(collision.gameObject.name);
             }
         } else if(collision.gameObject.GetComponent<DeadIfYouTouchThis>() != null){
