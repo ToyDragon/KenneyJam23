@@ -589,6 +589,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 733136316162376396, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951806833500116592, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951806833500116592, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.298
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951806833500116592, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395113141135655468, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395113141135655468, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395113141135655468, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6279275781256073750, guid: fb5e0b0477e0e07449a0422012b06377,
         type: 3}
       propertyPath: m_RootOrder
@@ -644,11 +679,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6578461944687418315, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7093734821324371333, guid: fb5e0b0477e0e07449a0422012b06377,
         type: 3}
       propertyPath: m_Name
       value: RootPrefab I
       objectReference: {fileID: 0}
+    - target: {fileID: 7112232471512901656, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707028272457592308, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876196051538842545, guid: fb5e0b0477e0e07449a0422012b06377,
+        type: 3}
+      propertyPath: getClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 825a8e4bcab6e7a47a7d0b3ebadd41bb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

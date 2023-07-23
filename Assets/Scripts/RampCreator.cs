@@ -33,6 +33,9 @@ public class RampCreator : MonoBehaviour
     }
     void Update()
     {
+        if (!RoverController.instance.hasMultitool) {
+            return;
+        }
         if (rampCreationStart.HasValue) {
             if (!lastHitObject) {
                 rampCreationStart = null;
