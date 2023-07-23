@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour
 {
-    public static GameObject crystalObject;
-    public static bool isCrystalInTrailer = false;
-    // Start is called before the first frame update
-    void Start()
+    public static Crystal instance;
+    public List<GameObject> crystals;
+    public int count = 0;
+    void OnEnable()
     {
-        crystalObject = gameObject;
-        crystalObject.SetActive(false);
+        instance = this;
+        foreach (var obj in crystals) {
+            obj.SetActive(false);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Add(){
+        count = Mathf.Min(count + 1, 3);
+        crystals[count - 1].SetActive(true);
     }
-
-    public static void Toggle(){
-        crystalObject.SetActive(!crystalObject.activeSelf);
-        isCrystalInTrailer = !isCrystalInTrailer;
+    public bool TryRemove(){
+        if (count <= 0) {
+            return false;
+        }
+        crystals[count - 1].SetActive(false);
+        count--;
+        return true;
     }
 }

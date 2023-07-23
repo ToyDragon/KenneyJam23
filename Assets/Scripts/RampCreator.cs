@@ -159,6 +159,7 @@ public class RampCreator : MonoBehaviour
         }
 
         if (hitObject && Input.GetKeyDown(KeyCode.Space)) {
+            SpaceHint.instance.Reset();
             rampCreationStart = Time.time;
             rampCreationState = 0;
             RoverController.instance.roverAnimator.SetBool("Digging", true);

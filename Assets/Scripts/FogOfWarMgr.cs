@@ -12,15 +12,15 @@ public class FogOfWarMgr : MonoBehaviour
     void OnEnable()
     {
         instance = this;
-        radiationTexture = new Texture2D(1024, 1024);
+        // radiationTexture = new Texture2D(1024, 1024);
         fogOfWarTexture = new Texture2D(1024, 1024);
         for (int x = 0; x < 1024; x++) {
             for (int y = 0; y < 1024; y++) {
                 fogOfWarTexture.SetPixel(x, y, Color.black);
-                radiationTexture.SetPixel(x, y, x > (512+21) ? Color.white : Color.black);
+                // radiationTexture.SetPixel(x, y, x > (512+21) ? Color.white : Color.black);
             }
         }
-        radiationTexture.Apply();
+        // radiationTexture.Apply();
         fogOfWarTexture.Apply();
     }
     public void LightAround(Vector2Int gridPos) {
