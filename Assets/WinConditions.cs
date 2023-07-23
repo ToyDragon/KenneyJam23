@@ -22,6 +22,7 @@ public class WinConditions : MonoBehaviour
     public void ActivateTower(int towerNumber){
         activatedTowers[towerNumber] = true;
         if(AllAreActive()){
+            MissionObjectiveManager.instance.CompleteObjective(7);
             WinTheGame();
         }
     }

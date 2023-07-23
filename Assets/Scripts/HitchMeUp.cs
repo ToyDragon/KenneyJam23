@@ -47,5 +47,6 @@ public class HitchMeUp : MonoBehaviour
         transform.parent.parent.GetComponent<RoverController>().trailerAttached = true;
         hitchSound.Play();
         uiToDisableOnHitch.SetActive(false);
+        MissionObjectiveManager.instance.CompleteObjective(1);
     }
 }

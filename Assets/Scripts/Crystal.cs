@@ -17,6 +17,7 @@ public class Crystal : MonoBehaviour
     public void Add(){
         count = Mathf.Min(count + 1, 3);
         crystals[count - 1].SetActive(true);
+        if(count >= 3) MissionObjectiveManager.instance.CompleteObjective(2);
     }
     public bool TryRemove(){
         if (count <= 0) {
