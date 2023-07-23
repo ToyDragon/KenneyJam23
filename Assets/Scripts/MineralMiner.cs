@@ -47,7 +47,7 @@ public class MineralMiner : MonoBehaviour
                     mining = false;
                     PIPDisplay.instance.img.enabled = false;
                     beingMined = null;
-                    Crystal.Toggle();
+                    Crystal.instance.Add();
                 }
             }
             return;
