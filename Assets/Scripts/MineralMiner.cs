@@ -55,18 +55,22 @@ public class MineralMiner : MonoBehaviour
 
         var start = transform.position + Vector3.up * .1f;
         GameObject mineral = CheckForMineral(start, transform.forward);
-        if(mineral != null && Input.GetKeyUp(KeyCode.Space)){
-            if(transform.Find("Trailer") == null){
-                ChatManager.instance.ShowAndStartText("Mining requires a trailer to store the resource!");
-                return;
+        if (mineral) {
+            SpaceHint.instance.Set(mineral.transform);
+            if(Input.GetKeyUp(KeyCode.Space)){
+                if(transform.Find("Trailer") == null){
+                    ChatManager.instance.ShowAndStartText("Mining requires a trailer to store the resource!");
+                    return;
+                }
+                mineral.GetComponent<Mineral>();
+                SpaceHint.instance.Reset();
+                mining = true;
+                mineStartTime = Time.time;
+                mineState = 0;
+                beingMined = mineral;
+                RoverController.instance.roverAnimator.SetBool("Digging", true);
+                PIPDisplay.instance.img.enabled = true;
             }
-            mineral.GetComponent<Mineral>().GetMined();
-            mining = true;
-            mineStartTime = Time.time;
-            mineState = 0;
-            beingMined = mineral;
-            RoverController.instance.roverAnimator.SetBool("Digging", true);
-            PIPDisplay.instance.img.enabled = true;
         }
     }
 }

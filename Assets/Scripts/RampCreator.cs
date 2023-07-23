@@ -78,6 +78,7 @@ public class RampCreator : MonoBehaviour
                 rampCreationStart = null;
                 PIPDisplay.instance.img.enabled = false;
                 TerrainTextureModifier.instance.MeshesChanged();
+                SpaceHint.instance.Reset();
             }
             return;
         }
@@ -133,6 +134,7 @@ public class RampCreator : MonoBehaviour
                 glowingObject.name += " Indicator";
                 glowingObject.transform.SetParent(hitObject.transform.parent);
                 glowingObject.transform.position = hitObject.transform.position;
+                SpaceHint.instance.Set(glowingObject.transform.position + Vector3.up * .2f + glowingObject.transform.right *.5f - glowingObject.transform.forward * .3f);
                 if (glowingObject.TryGetComponent<MeshCollider>(out var collider)) {
                     Destroy(collider);
                 }
@@ -151,6 +153,8 @@ public class RampCreator : MonoBehaviour
                 
                 float offset = .015f;
                 glowingObject.transform.position += glowingObject.transform.up * offset;
+            } else {
+                SpaceHint.instance.Reset();
             }
         }
 
