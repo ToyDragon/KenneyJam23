@@ -60,6 +60,7 @@ public class MineralMiner : MonoBehaviour
                 ChatManager.instance.ShowAndStartText("Mining requires a trailer to store the resource!");
                 return;
             }
+            mineral.GetComponent<Mineral>().GetMined();
             mining = true;
             mineStartTime = Time.time;
             mineState = 0;

@@ -7,6 +7,8 @@ public class HitchMeUp : MonoBehaviour
     public AudioSource hitchSound;
     // Start is called before the first frame update
     public RoverController roverController;
+
+    public GameObject uiToDisableOnHitch;
     void Start()
     {
         
@@ -32,10 +34,7 @@ public class HitchMeUp : MonoBehaviour
         if (roverController) {
             return;
         }
-        Debug.Log("This probably will not print");
-        Debug.Log("ok in case this prints, the object that triggers is - " + other.gameObject.name);
         if(other.gameObject.name == "TowHitch") {
-            Debug.Log("aight bet hitch me up");
             HitchMeUpDaddy(other.transform.parent);
         }
     }
@@ -47,5 +46,6 @@ public class HitchMeUp : MonoBehaviour
         transform.parent.rotation = transform.parent.parent.rotation;
         transform.parent.parent.GetComponent<RoverController>().trailerAttached = true;
         hitchSound.Play();
+        uiToDisableOnHitch.SetActive(false);
     }
 }

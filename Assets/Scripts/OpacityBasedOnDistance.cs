@@ -7,11 +7,11 @@ public class OpacityBasedOnDistance : MonoBehaviour
 {
     public float near = 5;
     public float far = 7;
-    public Image img;
+    public Image[] imgs;
     public TMPro.TMP_Text[] texts;
     void OnEnable()
     {
-        img = GetComponentInChildren<Image>();
+        imgs = GetComponentsInChildren<Image>();
         texts = GetComponentsInChildren<TMPro.TMP_Text>();
     }
     void Update()
@@ -21,6 +21,9 @@ public class OpacityBasedOnDistance : MonoBehaviour
         foreach (var text in texts) {
             text.color = new Color(text.color.r, text.color.g, text.color.b, opacity);
         }
-        img.color = new Color(img.color.r, img.color.g, img.color.b, opacity);
+        foreach(var img in imgs){
+            img.color = new Color(img.color.r, img.color.g, img.color.b, opacity);
+        }
+        
     }
 }

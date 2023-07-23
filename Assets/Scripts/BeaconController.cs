@@ -12,6 +12,7 @@ public class BeaconController : MonoBehaviour
     public List<GameObject> hideOnActivate = new List<GameObject>();
     public List<GameObject> showOnActivate = new List<GameObject>();
     public int state = 0;
+    public int beaconNumber = -1;
     void OnEnable() {
         audioSource = GetComponent<AudioSource>();
         state = 1;
@@ -35,6 +36,8 @@ public class BeaconController : MonoBehaviour
             foreach (var obj in showOnActivate) {
                 obj.SetActive(true);
             }
+
+            WinConditions.instance.ActivateTower(beaconNumber);
         }
     }
 }
