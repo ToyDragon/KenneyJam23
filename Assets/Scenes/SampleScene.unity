@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &22586235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7476782566472353753, guid: 7d73caa086c9ec843b1a384421164a15,
+    type: 3}
+  m_PrefabInstance: {fileID: 7785162264498817351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &39334197 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1094216221674155793, guid: 01e19dbc96613cf47bedf43d8f4e6d65,
@@ -225,6 +231,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7785162264498817351}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &365243778 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4286717647794583621, guid: c7288dc5bb559a84a90358dad8fe6e4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5827438048917078987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &377033563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6043681281518660191, guid: 7d73caa086c9ec843b1a384421164a15,
@@ -306,11 +318,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5273871120029447465}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1217007345 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3244405790738828156, guid: c7288dc5bb559a84a90358dad8fe6e4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5827438048917078987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1309581628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1105619905144953329, guid: 7d73caa086c9ec843b1a384421164a15,
     type: 3}
   m_PrefabInstance: {fileID: 7785162264498817351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1370552462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5294193343794752049, guid: c7288dc5bb559a84a90358dad8fe6e4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5827438048917078987}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1390270018 stripped
 GameObject:
@@ -1173,12 +1197,27 @@ PrefabInstance:
         type: 3}
       propertyPath: tele1
       value: 
-      objectReference: {fileID: 378102651}
+      objectReference: {fileID: 1217007345}
     - target: {fileID: 5346584038308893678, guid: 01e19dbc96613cf47bedf43d8f4e6d65,
         type: 3}
       propertyPath: tele2
       value: 
+      objectReference: {fileID: 365243778}
+    - target: {fileID: 5346584038308893678, guid: 01e19dbc96613cf47bedf43d8f4e6d65,
+        type: 3}
+      propertyPath: tele3
+      value: 
+      objectReference: {fileID: 1370552462}
+    - target: {fileID: 5346584038308893678, guid: 01e19dbc96613cf47bedf43d8f4e6d65,
+        type: 3}
+      propertyPath: tele4
+      value: 
       objectReference: {fileID: 2069493829}
+    - target: {fileID: 5346584038308893678, guid: 01e19dbc96613cf47bedf43d8f4e6d65,
+        type: 3}
+      propertyPath: tele5
+      value: 
+      objectReference: {fileID: 378102651}
     - target: {fileID: 7041265545065299241, guid: 01e19dbc96613cf47bedf43d8f4e6d65,
         type: 3}
       propertyPath: m_RootOrder
@@ -1355,6 +1394,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1153743378876165751, guid: 48877052c3dbc2c4494532abb7e29779,
+        type: 3}
+      propertyPath: enableOnWin
+      value: 
+      objectReference: {fileID: 22586235}
     - target: {fileID: 5831874265867037041, guid: 48877052c3dbc2c4494532abb7e29779,
         type: 3}
       propertyPath: m_RootOrder

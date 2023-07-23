@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WinConditions : MonoBehaviour
 {
-
+    public GameObject enableOnWin;
     public static WinConditions instance;
     bool[] activatedTowers = new bool[]{false,false,false,false};
 
@@ -29,5 +29,6 @@ public class WinConditions : MonoBehaviour
 
     public void WinTheGame(){
         Debug.Log("YOU WON!");
+        enableOnWin.SetActive(true);
     }
 }
