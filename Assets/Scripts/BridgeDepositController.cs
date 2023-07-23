@@ -29,6 +29,7 @@ public class BridgeDepositController : MonoBehaviour
                 Crystal.instance.TryRemove();
                 hintObj.SetActive(false);
                 paid = true;
+                MissionObjectiveManager.instance.CompleteObjective(3);
             }
         }
     }

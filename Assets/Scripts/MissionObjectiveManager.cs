@@ -28,9 +28,9 @@ public class MissionObjectiveManager : MonoBehaviour
         //1
         Objective getTrailer = new Objective("Retrieve the trailer", 2);
         //2
-        Objective getMarsium = new Objective("Collect 3 marsium", 2);
+        Objective getMarsium = new Objective("Open the marsium powered door", 2);
         //3
-        Objective deliverMarsium = new Objective("Deliver marsium to the bridge", 2);
+        Objective deliverMarsium = new Objective("Lower the marsium powered bridge", 2);
         //4
         Objective activateBridgeBeacon = new Objective("Activate the bridge beacon", 1, 
             new Objective[]{getTrailer,getMarsium,deliverMarsium});
