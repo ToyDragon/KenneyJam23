@@ -49,6 +49,7 @@ public class CameraFollow : MonoBehaviour
     }
     void Update()
     {
+        if (CamCutsceneController.instance.running) { return; }
         if (Input.GetKeyDown(KeyCode.M)) {
             mapEnabled = !mapEnabled;
             mapStateChanged = Time.time;

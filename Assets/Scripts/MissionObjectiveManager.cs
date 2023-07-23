@@ -31,7 +31,7 @@ public class MissionObjectiveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CompleteCurrentObjective();
+        // CompleteCurrentObjective();
     }
 
     void OnEnable(){

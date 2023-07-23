@@ -37,6 +37,7 @@ public class RoverController : MonoBehaviour
     }
     void Update()
     {
+        if (CamCutsceneController.instance.running) { return; }
         if (CameraFollow.instance.mapEnabled) {
             input = Vector2.zero;
             return;
@@ -62,6 +63,7 @@ public class RoverController : MonoBehaviour
         return new Vector2(v.x, v.z);
     } 
     void FixedUpdate() {
+        if (CamCutsceneController.instance.running) { return; }
         if (RampCreator.instance.rampCreationStart.HasValue) {
             audioSource.volume = .1f;
             return;
