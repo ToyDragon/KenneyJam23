@@ -20,6 +20,7 @@ public class MultiToolPickup : MonoBehaviour
             rover.hasMultitool = true;
             Destroy(gameObject);
             RampCreator.instance.audioSource.PlayOneShot(getClip);
+            ItemGetToaster.instance.Show("Dig ramps into short cliffs");
         }
     }
 }
