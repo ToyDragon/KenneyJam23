@@ -56,6 +56,7 @@ public class RampCreator : MonoBehaviour
             
             if (t >= 3) {
                 var newRamp = GameObject.Instantiate(hitObjectIsCorner ? cornerRampPrefab : rampPrefab);
+                newRamp.name += " Nobatch";
                 newRamp.transform.SetParent(lastHitObject.transform.parent);
                 newRamp.transform.rotation = lastHitObject.transform.rotation;
                 newRamp.transform.position = lastHitObject.transform.position - lastHitObject.transform.forward * .5f + lastHitObject.transform.right * .5f;
@@ -68,10 +69,12 @@ public class RampCreator : MonoBehaviour
                 }
                 Destroy(glowingObject);
                 glowingObject = null;
+                lastHitObject.name += " Nobatch";
                 Destroy(lastHitObject);
                 lastHitObject = null;
                 rampCreationStart = null;
                 PIPDisplay.instance.img.enabled = false;
+                TerrainTextureModifier.instance.MeshesChanged();
             }
             return;
         }
@@ -124,12 +127,16 @@ public class RampCreator : MonoBehaviour
             }
             if (hitObject) {
                 glowingObject = GameObject.Instantiate(hitObject);
+                glowingObject.name += " Indicator";
                 glowingObject.transform.SetParent(hitObject.transform.parent);
                 glowingObject.transform.position = hitObject.transform.position;
                 if (glowingObject.TryGetComponent<MeshCollider>(out var collider)) {
                     Destroy(collider);
                 }
-                if (glowingObject.TryGetComponent<Renderer>(out var renderer)) {
+                var renderers = glowingObject.GetComponents<Renderer>();
+                if (renderers.Length > 0) {
+                    var renderer = renderers[0];
+                    renderer.enabled = true;
                     renderer.GetSharedMaterials(rendererMaterials);
                     for (int j = 0; j < rendererMaterials.Count; j++) {
                         if (rendererMaterials[j]) {

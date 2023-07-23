@@ -54,6 +54,25 @@ public class CameraFollow : MonoBehaviour
             mapStateChanged = Time.time;
         }
 
+        Vector3 delta;
+        if (!mapEnabled) {
+            bool probeTop = false;
+            bool probeBottom = false;
+            delta = trackedLocation - transform.position;
+            if (Physics.Raycast(transform.position, delta.normalized, out var topHit, delta.magnitude - 1f, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
+                probeTop = true;
+            }
+            if (Physics.Raycast(transform.position - transform.up * .25f, delta.normalized, out var botHit, delta.magnitude - 1f, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
+                probeBottom = true;
+            }
+
+            if (probeTop) {
+                angle += Time.deltaTime*10f;
+            } else if (!probeBottom) {
+                angle = Mathf.Max(angle - Time.deltaTime*10f, 0);
+            }
+        }
+
         actualAngle += (angle - actualAngle) * snappiness * Time.deltaTime;
         // actual and target rotations are [0, 360)
         float targetRotation = (rotation + 360) % 360;
@@ -66,7 +85,7 @@ public class CameraFollow : MonoBehaviour
             rotationDelta += 360;
         }
 
-        var delta = (target.transform.position + target.vel * predictionDistance) - trackedLocation;
+        delta = (target.transform.position + target.vel * predictionDistance) - trackedLocation;
 
         distanceModifier = Mathf.Clamp01(target.vel.magnitude / 1.5f) + 1f;
 
