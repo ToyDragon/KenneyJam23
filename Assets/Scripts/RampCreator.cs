@@ -92,7 +92,12 @@ public class RampCreator : MonoBehaviour
             
             if (hit.transform.gameObject.name.StartsWith("terrain_sideCorner.")) {
                 hitObjectIsCorner = true;
-                hitObject = hit.transform.gameObject;
+                if (hit.transform.gameObject.TryGetComponent<MeshFilter>(out var filter)) {
+                    float height = filter.sharedMesh.bounds.max.y - filter.sharedMesh.bounds.min.y;
+                    if (height < 0.006f) {
+                        hitObject = hit.transform.gameObject;
+                    }
+                }
             }
 
             if (hitObject) {
@@ -127,7 +132,9 @@ public class RampCreator : MonoBehaviour
                 if (glowingObject.TryGetComponent<Renderer>(out var renderer)) {
                     renderer.GetSharedMaterials(rendererMaterials);
                     for (int j = 0; j < rendererMaterials.Count; j++) {
-                        rendererMaterials[j] = TerrainTextureModifier.instance.GetGlowingMaterial(rendererMaterials[j]);
+                        if (rendererMaterials[j]) {
+                            rendererMaterials[j] = TerrainTextureModifier.instance.GetGlowingMaterial(rendererMaterials[j]);
+                        }
                     }
                     renderer.SetSharedMaterials(rendererMaterials);
                 }

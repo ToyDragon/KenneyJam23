@@ -11,6 +11,7 @@ public class TerrainTextureModifier : MonoBehaviour
     public Dictionary<string, Material> keyToModifiedMaterial = new Dictionary<string, Material>();
     public Dictionary<string, Material> keyToGlowingMaterial = new Dictionary<string, Material>();
     public Material GetModifiedMaterial(Material original) {
+        if (!original) { return null; }
         Material modifiedMaterial = null;
         if (keyToModifiedMaterial.TryGetValue(original.name, out modifiedMaterial)) {
             return modifiedMaterial;
@@ -22,6 +23,7 @@ public class TerrainTextureModifier : MonoBehaviour
         return modifiedMaterial;
     }
     public Material GetGlowingMaterial(Material original) {
+        if (!original) { return null; }
         Material modifiedMaterial = null;
         if (keyToModifiedMaterial.TryGetValue(original.name, out modifiedMaterial)) {
             return modifiedMaterial;
@@ -41,6 +43,7 @@ public class TerrainTextureModifier : MonoBehaviour
             if (terrain && terrain.TryGetComponent<Renderer>(out var renderer)) {
                 renderer.GetSharedMaterials(rendererMaterials);
                 for (int j = 0; j < rendererMaterials.Count; j++) {
+                    if (!rendererMaterials[j]) { continue; }
                     rendererMaterials[j] = GetModifiedMaterial(rendererMaterials[j]);
                 }
                 renderer.SetSharedMaterials(rendererMaterials);

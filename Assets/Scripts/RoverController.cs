@@ -37,6 +37,10 @@ public class RoverController : MonoBehaviour
     }
     void Update()
     {
+        if (CameraFollow.instance.mapEnabled) {
+            input = Vector2.zero;
+            return;
+        }
         float yInput = 0;
         if (Input.GetKey(KeyCode.W)) {
             yInput = 1;
@@ -145,9 +149,9 @@ public class RoverController : MonoBehaviour
         var frontPos = transform.position + transform.forward * .1f + Vector3.up * .25f;
         var backPos = transform.position - transform.forward * .2f + Vector3.up * .25f;
         float modelXRot = 0;
-        Debug.DrawLine(frontPos, frontPos + Vector3.down * .5f, Color.blue, .1f);
-        Debug.DrawLine(backPos, backPos + Vector3.down * .5f, Color.blue, .1f);
-        if (Physics.Raycast(frontPos, Vector3.down, out var frontHit, .5f, Physics.AllLayers, QueryTriggerInteraction.Ignore) && Physics.Raycast(backPos, Vector3.down, out var backHit, .5f, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
+        Debug.DrawLine(frontPos, frontPos + Vector3.down * 1.5f, Color.blue, .1f);
+        Debug.DrawLine(backPos, backPos + Vector3.down * 1.5f, Color.blue, .1f);
+        if (Physics.Raycast(frontPos, Vector3.down, out var frontHit, 1.5f, Physics.AllLayers, QueryTriggerInteraction.Ignore) && Physics.Raycast(backPos, Vector3.down, out var backHit, 1.5f, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
             var delta = (frontHit.point - backHit.point).normalized;
             modelXRot = -Mathf.Asin(delta.y)*180/Mathf.PI;
         }
@@ -155,9 +159,9 @@ public class RoverController : MonoBehaviour
         var leftPos = transform.position + transform.right * .1f + Vector3.up * .25f - transform.forward * .05f;
         var rightPos = transform.position - transform.right * .1f + Vector3.up * .25f - transform.forward * .05f;
         float modelZRot = 0;
-        Debug.DrawLine(leftPos, leftPos + Vector3.down * .45f, Color.blue, .1f);
-        Debug.DrawLine(rightPos, rightPos + Vector3.down * .45f, Color.blue, .1f);
-        if (Physics.Raycast(leftPos, Vector3.down, out var leftHit, .45f, Physics.AllLayers, QueryTriggerInteraction.Ignore) && Physics.Raycast(rightPos, Vector3.down, out var rightHit, .45f, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
+        Debug.DrawLine(leftPos, leftPos + Vector3.down * 1.45f, Color.blue, .1f);
+        Debug.DrawLine(rightPos, rightPos + Vector3.down * 1.45f, Color.blue, .1f);
+        if (Physics.Raycast(leftPos, Vector3.down, out var leftHit, 1.45f, Physics.AllLayers, QueryTriggerInteraction.Ignore) && Physics.Raycast(rightPos, Vector3.down, out var rightHit, 1.45f, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
             var delta = (rightHit.point - leftHit.point).normalized;
             modelZRot = -Mathf.Asin(delta.y)*180/Mathf.PI;
         }
