@@ -13,6 +13,10 @@ public class OnTriggerBoi : MonoBehaviour
                 MissionObjectiveManager.instance.CompleteCurrentObjective();
                 namesOfTriggered.Add(collision.gameObject.name);
             }
+        } else if(collision.gameObject.GetComponent<DeadIfYouTouchThis>() != null){
+            transform.parent.gameObject.GetComponent<CharacterController>().enabled = false;
+            transform.parent.position = collision.gameObject.GetComponent<DeadIfYouTouchThis>().respawnPosition.position;
+            transform.parent.gameObject.GetComponent<CharacterController>().enabled = true;
         }
     }
 }
