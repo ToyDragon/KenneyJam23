@@ -6,7 +6,7 @@ public class FogOfWarMgr : MonoBehaviour
 {
     public static FogOfWarMgr instance;
     public Texture2D fogOfWarTexture;
-    public Texture radiationTexture;
+    public Texture2D radiationTexture;
     public Vector2Int lastGrid;
     public Color fogColor = Color.black;
     void OnEnable()

@@ -360,6 +360,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8508898544417954369, guid: b067bb408e4e4b74db1ad1bcb36924da,
+        type: 3}
+      propertyPath: radiationWarningImage
+      value: 
+      objectReference: {fileID: 7785162264498817353}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -996,6 +1001,12 @@ PrefabInstance:
 --- !u!1 &7785162264498817352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3020020783652178406, guid: 7d73caa086c9ec843b1a384421164a15,
+    type: 3}
+  m_PrefabInstance: {fileID: 7785162264498817351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7785162264498817353 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7184627016664547759, guid: 7d73caa086c9ec843b1a384421164a15,
     type: 3}
   m_PrefabInstance: {fileID: 7785162264498817351}
   m_PrefabAsset: {fileID: 0}

@@ -31,6 +31,7 @@ public class RoverController : MonoBehaviour
     public AudioSource audioSource;
     public Animator roverAnimator;
     public bool hasMultitool = false;
+    public bool hasLeadArmor = false;
     void OnEnable() {
         characterController = GetComponent<CharacterController>();
         roverAnimator = GetComponentInChildren<Animator>();

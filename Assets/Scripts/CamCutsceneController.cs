@@ -30,6 +30,9 @@ public class CamCutsceneController : MonoBehaviour
     public GameObject uiFullScreen;
     void OnEnable() {
         instance = this;
+        if (!running) {
+            return;
+        }
         transform.position = posA.position;
         transform.LookAt(lookPos);
         cam = GetComponent<Camera>();
