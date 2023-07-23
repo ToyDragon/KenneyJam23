@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shine
+  m_Name: Low Shine
   m_Shader: {fileID: 4800000, guid: fe06142aa91ece64084bd30d29259853, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -117,8 +117,8 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.90588236, g: 0.3635015, b: 0.24313721, a: 1}
-    - _ColorB: {r: 0.8584906, g: 0, b: 0.19786263, a: 1}
+    - _Color: {r: 0.90588236, g: 0.40064386, b: 0.24313721, a: 1}
+    - _ColorB: {r: 1, g: 0.5019608, b: 0.54859024, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
