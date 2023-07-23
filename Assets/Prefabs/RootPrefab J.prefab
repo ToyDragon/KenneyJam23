@@ -4969,6 +4969,7 @@ GameObject:
   - component: {fileID: 3654309712144183459}
   - component: {fileID: 1214539723231189336}
   - component: {fileID: 8934357252542297239}
+  - component: {fileID: 3074438170655140455}
   - component: {fileID: 8006522532193001044}
   m_Layer: 0
   m_Name: Rover
@@ -5193,6 +5194,33 @@ MonoBehaviour:
   audioSource: {fileID: 8006522532193001044}
   rampCreationState: 0
   hitObjectIsCorner: 0
+--- !u!114 &3074438170655140455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145826980792283701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb1a99d8514cf246b1bf23608e66f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mining: 0
+  audioSource: {fileID: 8006522532193001044}
+  drillSounds:
+  - {fileID: 8300000, guid: ff5083b33f6aff9498719b44330f1e1a, type: 3}
+  - {fileID: 8300000, guid: 998c8cd9016ab4240be307615243ca57, type: 3}
+  - {fileID: 8300000, guid: 2e5905935267c3c4ba46b352e307b28f, type: 3}
+  claySounds:
+  - {fileID: 8300000, guid: 3a7ef90d246aa8348bed7bdf34578ef7, type: 3}
+  - {fileID: 8300000, guid: 69767f1a39f6176479f90f5b64119296, type: 3}
+  - {fileID: 8300000, guid: 8c27906728a17a34586d07dfce5def72, type: 3}
+  digSounds:
+  - {fileID: 8300000, guid: 35f0093f19a3e754bba2cda36d21f652, type: 3}
+  - {fileID: 8300000, guid: 5974676c8037bf84e9c0c7338b9a918e, type: 3}
+  - {fileID: 8300000, guid: 261938f94636cfd4cbf621eb8d95d778, type: 3}
+  beingMined: {fileID: 0}
 --- !u!82 &8006522532193001044
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10149,7 +10177,7 @@ Transform:
   - {fileID: 4038621250980833750}
   - {fileID: 4010096176738339788}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6247717165673391941
 GameObject:
