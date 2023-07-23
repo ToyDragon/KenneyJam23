@@ -67,7 +67,7 @@ public class TerrainTextureModifier : MonoBehaviour
 
         for (int i = 0; i < transform.childCount; i++) {
             var terrain = transform.GetChild(i).gameObject;
-            if (!terrain) {
+            if (!terrain || !terrain.activeSelf) {
                 continue;
             }
             if (!tToRenderComps.TryGetValue(terrain, out var renderComponents)) {
@@ -124,7 +124,7 @@ public class TerrainTextureModifier : MonoBehaviour
         instance = this;
         for (int i = 0; i < transform.childCount; i++) {
             var terrain = transform.GetChild(i).gameObject;
-            if (!terrain) {
+            if (!terrain || !terrain.activeSelf) {
                 continue;
             }
             var renderComponents = tToRenderComps[terrain] = new RenderComponents() {
