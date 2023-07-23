@@ -13,6 +13,7 @@ public class Honker : MonoBehaviour
     }
     void Update()
     {
+        if (CamCutsceneController.instance.running) { return; }
         if (Mathf.FloorToInt(Time.time / timePerHonk) > Mathf.FloorToInt(lastHonk / timePerHonk)) {
             audioSource.clip = clips[Random.Range(0, clips.Count)];
             audioSource.Play();
