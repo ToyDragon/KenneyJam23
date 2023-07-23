@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridgeDepositController : MonoBehaviour
+public class DoorDepositController : MonoBehaviour
 {
     public bool paid = false;
     public GameObject hintObj;
     public TMPro.TMP_Text hintText;
-    public Transform bridgeFarA;
-    public Transform bridgeFarB;
-    public Transform bridgeNearA;
-    public Transform bridgeNearB;
+    public Transform doorLeft;
+    public Transform doorRight;
+    public Vector3 doorLeftOPos;
+    public Vector3 doorRightOPos;
+    public float payTime = 0;
     void Update()
     {
         if (paid) {
-            bridgeFarA.transform.localEulerAngles -= new Vector3(bridgeFarA.transform.localEulerAngles.x * Mathf.Clamp01(Time.deltaTime * 15), 0, 0);
-            bridgeFarB.transform.localEulerAngles -= new Vector3(bridgeFarB.transform.localEulerAngles.x * Mathf.Clamp01(Time.deltaTime * 15), 0, 0);
-            bridgeNearA.transform.localEulerAngles -= new Vector3(0, 0, bridgeNearA.transform.localEulerAngles.z * Mathf.Clamp01(Time.deltaTime * 15));
-            bridgeNearB.transform.localEulerAngles -= new Vector3(0, 0, bridgeNearB.transform.localEulerAngles.z * Mathf.Clamp01(Time.deltaTime * 15));
+            doorLeft.transform.position = doorLeftOPos + Mathf.Min((Time.time - payTime) * .25f, 1f) * Vector3.left;
+            doorRight.transform.position = doorRightOPos + Mathf.Min((Time.time - payTime) * .25f, 1f) * Vector3.right;
             return;
         }
         hintText.SetText($"{Crystal.instance.count} / 3\nmarsium");
@@ -29,6 +28,9 @@ public class BridgeDepositController : MonoBehaviour
                 Crystal.instance.TryRemove();
                 hintObj.SetActive(false);
                 paid = true;
+                payTime = Time.time;
+                doorLeftOPos = doorLeft.position;
+                doorRightOPos = doorRight.position;
             }
         }
     }

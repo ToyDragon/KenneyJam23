@@ -59,7 +59,7 @@ public class CameraFollow : MonoBehaviour
         if (!mapEnabled) {
             bool probeTop = false;
             bool probeBottom = false;
-            delta = trackedLocation - transform.position;
+            delta = target.transform.position - transform.position;
             Debug.DrawLine(transform.position, transform.position + delta.normalized * (delta.magnitude - 1), Color.black, .1f);
             if (Physics.Raycast(transform.position, delta.normalized, out var topHit, delta.magnitude - 1f, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
                 probeTop = true;
