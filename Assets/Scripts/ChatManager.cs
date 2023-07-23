@@ -12,10 +12,13 @@ public class ChatManager : MonoBehaviour
     bool writing = false;
     public AudioSource morseCode;
 
+    public static ChatManager instance;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class ChatManager : MonoBehaviour
             currentTime += Time.deltaTime;
             int numChars = (int)(currentTime/writeSpeed);
 
-            if(Input.GetKeyUp(KeyCode.Space)){
+            if(Input.GetKeyUp(KeyCode.Return)){
                 numChars = targetText.Length + 1;
                 GetComponentInChildren<TextMeshProUGUI>().text = targetText;
             }
@@ -37,7 +40,7 @@ public class ChatManager : MonoBehaviour
                 GetComponentInChildren<TextMeshProUGUI>().text = targetText.Substring(0,numChars);
             }
         } else {
-            if(Input.GetKeyUp(KeyCode.Space)){
+            if(Input.GetKeyUp(KeyCode.Return)){
                 Hide();
             }
         }
