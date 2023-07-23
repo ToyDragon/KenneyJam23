@@ -111,6 +111,7 @@ public class TerrainTextureModifier : MonoBehaviour
         foreach (var matAndInstance in matToMeshes) {
             GameObject batchObj = new GameObject("Batch " + matAndInstance.Key.name);
             Mesh m = new Mesh();
+            m.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
             m.CombineMeshes(matAndInstance.Value.ToArray());
             batchObj.AddComponent<MeshFilter>().sharedMesh = m;
             batchObj.AddComponent<MeshRenderer>().sharedMaterial = matAndInstance.Key;
